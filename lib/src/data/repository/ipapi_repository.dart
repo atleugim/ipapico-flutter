@@ -1,26 +1,19 @@
+import 'dart:async';
+import 'dart:convert';
 import 'dart:developer';
-
-import 'package:dio/dio.dart';
+import 'dart:io';
 
 class IpApiRepository {
-  static final _dio = Dio(
-    BaseOptions(
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        "X-Developed-By": "Miguel Vega | (atleugim)",
-      },
-      validateStatus: (status) {
-        return status != null && status < 500;
-      },
-      baseUrl: 'https://ipapi.co',
-    ),
-  );
-
   static Future<Map<String, dynamic>?> getIpApiData() async {
     try {
-      final response = await _dio.get('/json');
-      return Map<String, dynamic>.from(response.data);
+      final url = Uri.parse('https://ipapi.co/json/');
+      final client = HttpClient();
+      final request = await client.getUrl(url);
+
+      final response = await request.close();
+
+      final contentAsString = await utf8.decodeStream(response);
+      return Map<String, dynamic>.from(json.decode(contentAsString));
     } catch (err) {
       log(err.toString());
       return Future.error(err);
