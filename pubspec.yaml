@@ -1,6 +1,6 @@
 name: ipapico_flutter
-description: Get ip and timezone and other metadata info
-version: 0.0.1
+description: Get ip and timezone and other metadata info from https://ipapi.co/
+version: 0.0.2
 homepage: https://github.com/atleugim/ipapico-flutter
 
 environment:
