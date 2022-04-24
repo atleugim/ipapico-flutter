@@ -12,7 +12,7 @@ class IpApiData {
 
   IpApiData._internal();
 
-  static Future<IpApiResponse> getIpApiData() async {
+  Future<IpApiResponse> getIpApiData() async {
     try {
       final response = await IpApiRepository.getIpApiData();
 
