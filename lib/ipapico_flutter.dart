@@ -1,7 +1,5 @@
 library ipapico_flutter;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'src/data/model/ipapi.dart';
+export 'src/data/repository/ipapi_repository.dart';
+export 'src/index.dart';
