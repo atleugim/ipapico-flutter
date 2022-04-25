@@ -1,11 +1,12 @@
 name: ipapico_flutter
-description: Get ip and timezone and other metadata info from https://ipapi.co/
-version: 0.0.2
+description: Get IP address, geolocation and other metadata info from https://ipapi.co/
+version: 0.0.3
+maintainer: Miguel Vega (@atleugim)
+
 homepage: https://github.com/atleugim/ipapico-flutter
 
 environment:
-  sdk: ">=2.16.2 <3.0.0"
-  flutter: ">=1.17.0"
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
   equatable: ^2.0.3
@@ -17,5 +18,3 @@ dev_dependencies:
   flutter_lints: ^1.0.0
   json_serializable: ^6.1.6
   build_runner: ^2.1.10
-
-flutter:
