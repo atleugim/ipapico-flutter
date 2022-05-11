@@ -1,6 +1,6 @@
 name: ipapico_flutter
 description: Get IP address, geolocation and other metadata info from https://ipapi.co/
-version: 0.0.3
+version: 0.0.4
 maintainer: Miguel Vega (@atleugim)
 
 homepage: https://github.com/atleugim/ipapico-flutter
