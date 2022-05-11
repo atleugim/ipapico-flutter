@@ -12,18 +12,15 @@ class IpApiData {
 
   IpApiData._internal();
 
-  Future<IpApiResponse> getIpApiData() async {
-    try {
-      final response = await IpApiRepository.getIpApiData();
-
-      if (response != null) {
-        return IpApiResponse.fromJson(response);
-      } else {
-        return Future.error('No data');
-      }
-    } catch (err) {
-      log(err.toString());
-      return Future.error(err);
-    }
-  }
+  Future<IpApiResponse?> getIpApiData() async =>
+      await IpApiRepository.getIpApiData().then((response) {
+        if (response != null) {
+          return IpApiResponse.fromJson(response);
+        } else {
+          return null;
+        }
+      }).catchError((err) {
+        log(err.toString());
+        return null;
+      });
 }

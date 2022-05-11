@@ -12,16 +12,26 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final ipApiData = IpApiData();
     return MaterialApp(
-      title: 'Material App',
+      title: 'ipapico_flutter',
       home: Scaffold(
-        body: FutureBuilder<IpApiResponse>(
+        body: FutureBuilder<IpApiResponse?>(
           future: ipApiData.getIpApiData(),
           builder: (context, snapshot) {
-            return snapshot.hasData
-                ? IpApiDataPreview(data: snapshot.data!)
-                : const Center(
-                    child: CupertinoActivityIndicator(color: Colors.black),
-                  );
+            if (snapshot.hasData && snapshot.data != null) {
+              return IpApiDataPreview(data: snapshot.data!);
+            }
+
+            if (snapshot.hasError ||
+                (snapshot.hasData && snapshot.data == null)) {
+              final error = snapshot.error?.toString() ?? 'Unknown error';
+              return Center(
+                child: Text('Error: $error'),
+              );
+            }
+
+            return const Center(
+              child: CupertinoActivityIndicator(color: Colors.black),
+            );
           },
         ),
       ),

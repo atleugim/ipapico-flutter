@@ -11,7 +11,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  ipapico_flutter: any
+  ipapico_flutter:
+    path: ../
 
 dev_dependencies:
   flutter_test:
