@@ -5,47 +5,47 @@ part 'ipapi.g.dart';
 
 @JsonSerializable()
 class IpApiResponse extends Equatable {
-  final String ip;
-  final String version;
-  final String city;
-  final String region;
+  final String? ip;
+  final String? version;
+  final String? city;
+  final String? region;
   @JsonKey(name: 'region_code')
-  final String regionCode;
-  final String country;
+  final String? regionCode;
+  final String? country;
   @JsonKey(name: 'country_name')
-  final String countryName;
+  final String? countryName;
   @JsonKey(name: 'country_code')
-  final String countryCode;
+  final String? countryCode;
   @JsonKey(name: 'country_code_iso3')
-  final String countryCodeIso3;
+  final String? countryCodeIso3;
   @JsonKey(name: 'country_capital')
-  final String countryCapital;
+  final String? countryCapital;
   @JsonKey(name: 'country_tld')
-  final String countryTld;
+  final String? countryTld;
   @JsonKey(name: 'continent_code')
-  final String continentCode;
+  final String? continentCode;
   @JsonKey(name: 'in_eu')
-  final bool inEu;
-  final String postal;
-  final double latitude;
-  final double longitude;
-  final String timezone;
+  final bool? inEu;
+  final String? postal;
+  final double? latitude;
+  final double? longitude;
+  final String? timezone;
   @JsonKey(name: 'utc_offset')
-  final String utcOffset;
+  final String? utcOffset;
   @JsonKey(name: 'country_calling_code')
-  final String countryCallingCode;
-  final String currency;
+  final String? countryCallingCode;
+  final String? currency;
   @JsonKey(name: 'currency_name')
-  final String currencyName;
-  final String languages;
+  final String? currencyName;
+  final String? languages;
   @JsonKey(name: 'country_area')
-  final double countryArea;
+  final double? countryArea;
   @JsonKey(name: 'country_population')
-  final int countryPopulation;
-  final String asn;
-  final String org;
+  final int? countryPopulation;
+  final String? asn;
+  final String? org;
 
-  const IpApiResponse(
+  const IpApiResponse({
     this.ip,
     this.version,
     this.city,
@@ -72,70 +72,12 @@ class IpApiResponse extends Equatable {
     this.countryPopulation,
     this.asn,
     this.org,
-  );
+  });
 
   factory IpApiResponse.fromJson(Map<String, dynamic> json) =>
       _$IpApiResponseFromJson(json);
 
   Map<String, dynamic> toJson() => _$IpApiResponseToJson(this);
-
-  IpApiResponse copyWith({
-    String? ip,
-    String? version,
-    String? city,
-    String? region,
-    String? regionCode,
-    String? country,
-    String? countryName,
-    String? countryCode,
-    String? countryCodeIso3,
-    String? countryCapital,
-    String? countryTld,
-    String? continentCode,
-    bool? inEu,
-    String? postal,
-    double? latitude,
-    double? longitude,
-    String? timezone,
-    String? utcOffset,
-    String? countryCallingCode,
-    String? currency,
-    String? currencyName,
-    String? languages,
-    double? countryArea,
-    int? countryPopulation,
-    String? asn,
-    String? org,
-  }) {
-    return IpApiResponse(
-      ip ?? this.ip,
-      version ?? this.version,
-      city ?? this.city,
-      region ?? this.region,
-      regionCode ?? this.regionCode,
-      country ?? this.country,
-      countryName ?? this.countryName,
-      countryCode ?? this.countryCode,
-      countryCodeIso3 ?? this.countryCodeIso3,
-      countryCapital ?? this.countryCapital,
-      countryTld ?? this.countryTld,
-      continentCode ?? this.continentCode,
-      inEu ?? this.inEu,
-      postal ?? this.postal,
-      latitude ?? this.latitude,
-      longitude ?? this.longitude,
-      timezone ?? this.timezone,
-      utcOffset ?? this.utcOffset,
-      countryCallingCode ?? this.countryCallingCode,
-      currency ?? this.currency,
-      currencyName ?? this.currencyName,
-      languages ?? this.languages,
-      countryArea ?? this.countryArea,
-      countryPopulation ?? this.countryPopulation,
-      asn ?? this.asn,
-      org ?? this.org,
-    );
-  }
 
   @override
   List<Object?> get props => [
@@ -166,6 +108,64 @@ class IpApiResponse extends Equatable {
         asn,
         org,
       ];
+
+  IpApiResponse copyWith({
+    String? ip,
+    String? version,
+    String? city,
+    String? region,
+    String? regionCode,
+    String? country,
+    String? countryName,
+    String? countryCode,
+    String? countryCodeIso3,
+    String? countryCapital,
+    String? countryTld,
+    String? continentCode,
+    bool? inEu,
+    String? postal,
+    double? latitude,
+    double? longitude,
+    String? timezone,
+    String? utcOffset,
+    String? countryCallingCode,
+    String? currency,
+    String? currencyName,
+    String? languages,
+    double? countryArea,
+    int? countryPopulation,
+    String? asn,
+    String? org,
+  }) {
+    return IpApiResponse(
+      ip: ip ?? this.ip,
+      version: version ?? this.version,
+      city: city ?? this.city,
+      region: region ?? this.region,
+      regionCode: regionCode ?? this.regionCode,
+      country: country ?? this.country,
+      countryName: countryName ?? this.countryName,
+      countryCode: countryCode ?? this.countryCode,
+      countryCodeIso3: countryCodeIso3 ?? this.countryCodeIso3,
+      countryCapital: countryCapital ?? this.countryCapital,
+      countryTld: countryTld ?? this.countryTld,
+      continentCode: continentCode ?? this.continentCode,
+      inEu: inEu ?? this.inEu,
+      postal: postal ?? this.postal,
+      latitude: latitude ?? this.latitude,
+      longitude: longitude ?? this.longitude,
+      timezone: timezone ?? this.timezone,
+      utcOffset: utcOffset ?? this.utcOffset,
+      countryCallingCode: countryCallingCode ?? this.countryCallingCode,
+      currency: currency ?? this.currency,
+      currencyName: currencyName ?? this.currencyName,
+      languages: languages ?? this.languages,
+      countryArea: countryArea ?? this.countryArea,
+      countryPopulation: countryPopulation ?? this.countryPopulation,
+      asn: asn ?? this.asn,
+      org: org ?? this.org,
+    );
+  }
 
   @override
   String toString() {
